@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/ICPen2.DataModels.Enums" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/ICPen2.DataModels.Enums" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:simpleType name="TypeOfRegion">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="checkBox" />
+      <xs:enumeration value="textBox" />
+      <xs:enumeration value="numericalBox" />
+      <xs:enumeration value="openAnswer" />
+      <xs:enumeration value="anotoSmallSign" />
+      <xs:enumeration value="surveyNumberAndInquirynumber" />
+      <xs:enumeration value="trainingTextBox" />
+      <xs:enumeration value="trainingNumericalBox" />
+      <xs:enumeration value="regionWithoutPattern" />
+      <xs:enumeration value="pairWithPc" />
+      <xs:enumeration value="pairWithMobile" />
+      <xs:enumeration value="sendToPc" />
+      <xs:enumeration value="sendToMobile" />
+      <xs:enumeration value="imageRegion" />
+      <xs:enumeration value="textBoxSerie" />
+      <xs:enumeration value="signature" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="TypeOfRegion" nillable="true" type="tns:TypeOfRegion" />
+</xs:schema>

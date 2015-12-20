@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="d832c525-18a8-4de8-94f3-5e328c016e68" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://185.5.99.165/ppb/ppb.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="PPB.xsd" MetadataType="Schema" ID="4bffaf9a-b13e-4c71-be7c-969860206519" SourceId="1" SourceUrl="http://185.5.99.165/PPB/PPB.svc?xsd=xsd2" />
+    <MetadataFile FileName="PPB1.xsd" MetadataType="Schema" ID="f75418f6-7e51-467b-9287-deb12c5c9734" SourceId="1" SourceUrl="http://185.5.99.165/PPB/PPB.svc?xsd=xsd6" />
+    <MetadataFile FileName="PPB2.xsd" MetadataType="Schema" ID="d2d742b2-ffdc-4153-8939-300f9eb76894" SourceId="1" SourceUrl="http://185.5.99.165/PPB/PPB.svc?xsd=xsd4" />
+    <MetadataFile FileName="PPBS.wsdl" MetadataType="Wsdl" ID="3de843fa-8db2-4d68-aaf4-89773bfc3585" SourceId="1" SourceUrl="http://185.5.99.165/PPB/PPB.svc?wsdl" />
+    <MetadataFile FileName="PPB3.xsd" MetadataType="Schema" ID="d804cac9-301d-4c0c-99b2-abff1144a5ad" SourceId="1" SourceUrl="http://185.5.99.165/PPB/PPB.svc?xsd=xsd0" />
+    <MetadataFile FileName="PPB4.xsd" MetadataType="Schema" ID="6c9e8240-3019-4ac4-bc83-797adeaaa236" SourceId="1" SourceUrl="http://185.5.99.165/PPB/PPB.svc?xsd=xsd1" />
+    <MetadataFile FileName="PPB.disco" MetadataType="Disco" ID="2dff7905-83d0-49c8-beb1-34fec047e8ad" SourceId="1" SourceUrl="http://185.5.99.165/PPB/PPB.svc?disco" />
+    <MetadataFile FileName="PPB5.xsd" MetadataType="Schema" ID="61b79ddf-095a-4d5e-95a3-315b49940784" SourceId="1" SourceUrl="http://185.5.99.165/PPB/PPB.svc?xsd=xsd3" />
+    <MetadataFile FileName="PPB6.xsd" MetadataType="Schema" ID="ead59d6b-4b8b-40d3-a038-762e21543ddb" SourceId="1" SourceUrl="http://185.5.99.165/PPB/PPB.svc?xsd=xsd5" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

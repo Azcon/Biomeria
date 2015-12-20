@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/ICPen2.DataModels.Survey" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/ICPen2.DataModels.Survey" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://185.5.99.165/PPB/PPB.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/ICPen2.DataModels.Enums" />
+  <xs:complexType name="SurveyRegion">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DataSeriesValue" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DefaultValue" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DictionariesID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Dpi" type="xs:double" />
+      <xs:element minOccurs="0" name="ExternalSystemId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FontName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FontSize" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Height" type="xs:double" />
+      <xs:element minOccurs="0" name="IcrCustomerDictionaryGuid" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="IsCheckbox" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsDataSeries" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsObligatory" type="xs:boolean" />
+      <xs:element minOccurs="0" name="MultipleWordsRecognition" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NumberOfChars" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="PageNumber" type="xs:int" />
+      <xs:element minOccurs="0" name="PossibleCharacters" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RegionKey" nillable="true" type="tns:SurveyRegionKey" />
+      <xs:element minOccurs="0" name="SurveyAnalyseTemplateID" type="xs:int" />
+      <xs:element minOccurs="0" name="TopLeft_x" type="xs:double" />
+      <xs:element minOccurs="0" name="TopLeft_y" type="xs:double" />
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/ICPen2.DataModels.Enums" minOccurs="0" name="TypeOfRegion" type="q1:TypeOfRegion" />
+      <xs:element minOccurs="0" name="Width" type="xs:double" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SurveyRegion" nillable="true" type="tns:SurveyRegion" />
+  <xs:complexType name="SurveyRegionKey">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ExportToPDF" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="MaxSelectedCheckboxes" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="PointAllValues" type="xs:boolean" />
+      <xs:element minOccurs="0" name="RegionID" type="xs:int" />
+      <xs:element minOccurs="0" name="SurveyRegionKeyValues" nillable="true" type="tns:ArrayOfSurveyRegionKeyValue" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SurveyRegionKey" nillable="true" type="tns:SurveyRegionKey" />
+  <xs:complexType name="ArrayOfSurveyRegionKeyValue">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SurveyRegionKeyValue" nillable="true" type="tns:SurveyRegionKeyValue" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfSurveyRegionKeyValue" nillable="true" type="tns:ArrayOfSurveyRegionKeyValue" />
+  <xs:complexType name="SurveyRegionKeyValue">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="KeyPoints" type="xs:int" />
+      <xs:element minOccurs="0" name="KeyValue" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SurveyRegionKeyValue" nillable="true" type="tns:SurveyRegionKeyValue" />
+</xs:schema>

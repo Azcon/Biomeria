@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/ICPen2.DataModels.RegionsWithStrokes" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/ICPen2.DataModels.RegionsWithStrokes" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://185.5.99.165/PPB/PPB.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/ICPen2.DataModels.Survey" />
+  <xs:import schemaLocation="http://185.5.99.165/PPB/PPB.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/ICPen2.DataModels.Inquirys" />
+  <xs:complexType name="RegionsWithStrokesObject">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="RegionsWithStrokesList" nillable="true" type="tns:ArrayOfRegionWithStrokes" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RegionsWithStrokesObject" nillable="true" type="tns:RegionsWithStrokesObject" />
+  <xs:complexType name="ArrayOfRegionWithStrokes">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="RegionWithStrokes" nillable="true" type="tns:RegionWithStrokes" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRegionWithStrokes" nillable="true" type="tns:ArrayOfRegionWithStrokes" />
+  <xs:complexType name="RegionWithStrokes">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DPI" type="xs:double" />
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/ICPen2.DataModels.Survey" minOccurs="0" name="Region" nillable="true" type="q1:SurveyRegion" />
+      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/ICPen2.DataModels.Inquirys" minOccurs="0" name="Strokes" nillable="true" type="q2:ArrayOfInquiryStroke" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RegionWithStrokes" nillable="true" type="tns:RegionWithStrokes" />
+</xs:schema>

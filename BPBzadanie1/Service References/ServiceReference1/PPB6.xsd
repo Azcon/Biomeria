@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/ICPen2.DataModels.Inquirys" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/ICPen2.DataModels.Inquirys" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://185.5.99.165/PPB/PPB.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/ICPen2.DataModels.Commons" />
+  <xs:complexType name="ArrayOfInquiryStroke">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="InquiryStroke" nillable="true" type="tns:InquiryStroke" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfInquiryStroke" nillable="true" type="tns:ArrayOfInquiryStroke" />
+  <xs:complexType name="InquiryStroke">
+    <xs:sequence>
+      <xs:element name="createDateTime" type="xs:dateTime" />
+      <xs:element name="idInquiryDBInfo" type="xs:int" />
+      <xs:element name="inquiryPart" type="xs:int" />
+      <xs:element name="inquiryPoints" nillable="true" type="tns:InquiryPoint" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="InquiryStroke" nillable="true" type="tns:InquiryStroke" />
+  <xs:complexType name="InquiryPoint">
+    <xs:sequence>
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/ICPen2.DataModels.Commons" name="pointsList" nillable="true" type="q1:ArrayOfPoint" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="InquiryPoint" nillable="true" type="tns:InquiryPoint" />
+</xs:schema>
