@@ -11,6 +11,38 @@ namespace BPBzadanie1
 {
     class Program
     {
+        static List<ServiceReference1.Point> normalizacja(List<ServiceReference1.Point> lista, int k)
+        {
+            int j = 0;
+            double b = 0.0;
+            double a = 1.0;
+            double parametr_n = ((double)lista.Count / k);
+            ServiceReference1.Point[] punkt = new ServiceReference1.Point[k];
+            List<ServiceReference1.Point> lista_pomocnicza = new List<ServiceReference1.Point>(k);
+            for (int i = 0; i < k - 2; i++)
+            {
+                j = (int)Math.Floor(i * parametr_n);
+                b = i * parametr_n - j;
+                a = 1 - b;
+                punkt[i] = new ServiceReference1.Point();
+                punkt[i].x = (float)(a * lista[j].x + b * lista[j + 1].x);
+                punkt[i].y = (float)(a * lista[j].y + b * lista[j + 1].y);
+                punkt[i].force = (byte)(a * lista[j].force + b * lista[j + 1].force);
+                lista_pomocnicza.Add(punkt[i]);
+            }
+            int J = (int)Math.Floor((k - 2) * parametr_n);
+            punkt[k - 2] = new ServiceReference1.Point();
+            punkt[k - 2].x = (float)0.85 * lista[J].x + (float)0.15 * lista[J-1].x;
+            punkt[k - 2].y = (float)0.85 * lista[J].y + (float)0.15 * lista[J - 1].y;
+            punkt[k - 2].force = (byte)(0.85 * lista[J].force + 0.15 * lista[J - 1].force);
+            lista_pomocnicza.Add(punkt[k - 2]);
+            punkt[k - 1] = new ServiceReference1.Point();
+            punkt[k - 1].x = lista[J].x;
+            punkt[k - 1].y = lista[J].y;
+            punkt[k - 1].force = lista[J].force;
+            lista_pomocnicza.Add(punkt[k - 1]);
+            return lista_pomocnicza;        
+        }
         static double distance_euclides(ServiceReference1.Point pierwszy, ServiceReference1.Point drugi)
         {
             return Math.Sqrt(Math.Pow((pierwszy.force - drugi.force), 2) + Math.Pow((pierwszy.x - drugi.x), 2) + Math.Pow((pierwszy.y - drugi.y), 2));
@@ -283,6 +315,83 @@ namespace BPBzadanie1
                     indeks_minimalny_fejk1 = i;
                 }
             }
+            // wypisanie liczby elementow z kazdego z podpisow [2-6] zestawu fake1 i fake2
+            Console.WriteLine("\nFake1 Lista 2 ma {0} punktów", fake1_lista2.Count);
+            Console.WriteLine("Fake1 Lista 3 ma {0} punktów", fake1_lista3.Count);
+            Console.WriteLine("Fake1 Lista 4 ma {0} punktów", fake1_lista4.Count); // posiada najwiecej punktow tj. 178
+            Console.WriteLine("Fake1 Lista 5 ma {0} punktów", fake1_lista5.Count);
+            Console.WriteLine("Fake1 Lista 6 ma {0} punktów", fake1_lista6.Count);
+            Console.WriteLine("Fake2 Lista 2 ma {0} punktów", fake2_lista2.Count);
+            Console.WriteLine("Fake2 Lista 3 ma {0} punktów", fake2_lista3.Count);
+            Console.WriteLine("Fake2 Lista 4 ma {0} punktów", fake2_lista4.Count);
+            Console.WriteLine("Fake2 Lista 5 ma {0} punktów", fake2_lista5.Count);
+            Console.WriteLine("Fake2 Lista 6 ma {0} punktów", fake2_lista6.Count);
+            Console.WriteLine("---normalizacja---");
+
+            // wypisanie elementow podpisu z okna [2] z zestawu fake2 przed normalizacja
+            foreach (ServiceReference1.Point p in fake2_lista2)
+            {
+                Console.Write("[{0}; {1}; {2}]**", p.force, p.x, p.y);
+            }
+            // wypisanie elementow podposi z okna [2] z zestawu fake2 po normalizacji
+            Console.WriteLine("\n");
+            foreach (ServiceReference1.Point q in normalizacja(fake2_lista2, 178))
+            {
+                Console.Write("[{0}; {1}; {2}]**", q.force, q.x, q.y);
+            }
+            // liczba elementow znormalizowanego podpisu z okna [2] fake2 po normalizacji
+            // Console.WriteLine("Fake2 Lista 2 ma po normalizacji {0} punktów", normalizacja(fake2_lista2, 178).Count);
+            fake1_lista2 = normalizacja(fake1_lista2,178);
+            fake1_lista3 = normalizacja(fake1_lista3, 178);
+            fake1_lista5 = normalizacja(fake1_lista5, 178);
+            fake1_lista6 = normalizacja(fake1_lista6, 178);
+            fake2_lista2 = normalizacja(fake2_lista2, 178);
+            fake2_lista3 = normalizacja(fake2_lista3, 178);
+            fake2_lista4 = normalizacja(fake2_lista4, 178);
+            fake2_lista5 = normalizacja(fake2_lista5, 178);
+            fake2_lista6 = normalizacja(fake2_lista6, 178);
+
+            Console.WriteLine("\nFake1 Lista 2 ma {0} punktów", fake1_lista2.Count);
+            Console.WriteLine("Fake1 Lista 3 ma {0} punktów", fake1_lista3.Count);
+            Console.WriteLine("Fake1 Lista 4 ma {0} punktów", fake1_lista4.Count);
+            Console.WriteLine("Fake1 Lista 5 ma {0} punktów", fake1_lista5.Count);
+            Console.WriteLine("Fake1 Lista 6 ma {0} punktów", fake1_lista6.Count);
+            Console.WriteLine("Fake2 Lista 2 ma {0} punktów", fake2_lista2.Count);
+            Console.WriteLine("Fake2 Lista 3 ma {0} punktów", fake2_lista3.Count);
+            Console.WriteLine("Fake2 Lista 4 ma {0} punktów", fake2_lista4.Count);
+            Console.WriteLine("Fake2 Lista 5 ma {0} punktów", fake2_lista5.Count);
+            Console.WriteLine("Fake2 Lista 6 ma {0} punktów", fake2_lista6.Count);
+
+
+
+            /*
+            int ilosc_punktow_fake1_lista7 = 0;
+            for (int i = 0; i < x.RegionsWithStrokesList[7].Strokes.Length; i++)
+            {
+                ilosc_punktow_fake1_lista7 = ilosc_punktow_fake1_lista7 + x.RegionsWithStrokesList[7].Strokes[i].inquiryPoints.pointsList.Length;
+            }
+            int ilosc_punktow_fake1_lista8 = 0;
+            for (int i = 0; i < x.RegionsWithStrokesList[8].Strokes.Length; i++)
+            {
+                ilosc_punktow_fake1_lista8 = ilosc_punktow_fake1_lista8 + x.RegionsWithStrokesList[8].Strokes[i].inquiryPoints.pointsList.Length;
+            }
+            int ilosc_punktow_fake2_lista7 = 0;
+            for (int i = 0; i < y.RegionsWithStrokesList[7].Strokes.Length; i++)
+            {
+                ilosc_punktow_fake2_lista7 = ilosc_punktow_fake2_lista7 + y.RegionsWithStrokesList[7].Strokes[i].inquiryPoints.pointsList.Length;
+            }
+            int ilosc_punktow_fake2_lista8 = 0;
+            for (int i = 0; i < y.RegionsWithStrokesList[8].Strokes.Length; i++)
+            {
+                ilosc_punktow_fake2_lista8 = ilosc_punktow_fake2_lista8 + y.RegionsWithStrokesList[8].Strokes[i].inquiryPoints.pointsList.Length;
+            }
+            Console.WriteLine("Fake1 Lista 7 ma {0} punktów", ilosc_punktow_fake1_lista7);
+            Console.WriteLine("Fake2 Lista 8 ma {0} punktów", ilosc_punktow_fake1_lista8);
+            Console.WriteLine("Fake2 Lista 7 ma {0} punktów", ilosc_punktow_fake2_lista7);
+            Console.WriteLine("Fake2 Lista 8 ma {0} punktów", ilosc_punktow_fake2_lista8);
+            */
+
+            /*
             for (int i = 0; i < 9; i++)
             {
                 ServiceReference1.Point punkt = x.RegionsWithStrokesList[i].Strokes[0].inquiryPoints.pointsList[0];
@@ -298,6 +407,7 @@ namespace BPBzadanie1
                 string rozmiar_okna_y = y.RegionsWithStrokesList[i].Region.Height.ToString();
                 Console.WriteLine("\n Rozmiar okna to: (szerokosc){0} na (wysokosc){1}, współrzędne 1 punktu to({2}; {3}; {4})", rozmiar_okna_x, rozmiar_okna_y, punkt.force, punkt.x, punkt.y);
             }
+            */
 
             Console.WriteLine("\nKONIEC");
             Console.ReadKey();
